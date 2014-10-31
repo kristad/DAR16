@@ -49,7 +49,7 @@ public class ControlServlet extends HttpServlet {
 		define('DB_NAME', getenv('OPENSHIFT_GEAR_NAME'));
 			*/  
 		System.out.println("//////////////////////////");
-		String connectionparams = "jdbc:mysql://127.12.161.2:3306/";
+		//String connectionparams = "jdbc:mysql://127.12.161.2:3306/";
 	//	String connectionparams = "jdbc:mysql://test-rhvelo.rhcloud.com:3306/";
 		//Map<String, String> env = System.getenv();
 		//String s = env.get("OPENSHIFT_MYSQLDB_DB_HOST");
@@ -69,10 +69,9 @@ public class ControlServlet extends HttpServlet {
 		Connection connection=null;
 		
 		try {
-			  
-			//connection = DriverManager.getConnection(connectionparams, uname, psword); 
-			connection = DriverManager.getConnection(
-	                "jdbc:mysql://127.12.161.2:3306/test", uname, psword);
+			String connectionparams="jdbc:mysql://$OPENSHIFT_DB_HOST:$OPENSHIFT_DB_PORT/";
+			connection = DriverManager.getConnection(connectionparams, uname, psword); 
+			//connection = DriverManager.getConnection(    "jdbc:mysql://127.12.161.2:3306/test", uname, psword);
 	 
 			Statement statement = connection.createStatement();
 			
