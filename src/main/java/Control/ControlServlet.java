@@ -57,6 +57,9 @@ public class ControlServlet extends HttpServlet {
 	   
 		String uname = "adminin72uv9";                   
 		String psword = "iM2MZJYmwhLf";
+		PrintWriter out=response.getWriter();
+		out.println("OK");
+		
 		
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
@@ -69,8 +72,6 @@ public class ControlServlet extends HttpServlet {
 			  
 			connection = DriverManager.getConnection(connectionparams, uname, psword); 
 			Statement statement = connection.createStatement();
-			PrintWriter out=response.getWriter();
-			out.println("OK");
 			
 			String sql = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance, idc) VALUES('k','d','k@d','k','1','23654789','3') ;"; 
 					//+ name + ")";
