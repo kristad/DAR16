@@ -69,6 +69,9 @@ public class ControlServlet extends HttpServlet {
 			  
 			connection = DriverManager.getConnection(connectionparams, uname, psword); 
 			Statement statement = connection.createStatement();
+			PrintWriter out=response.getWriter();
+			out.println("OK");
+			
 			String sql = "INSERT INTO user ( name ) values ('k'); "; 
 					//+ name + ")";
 			int rs=statement.executeUpdate(sql);
