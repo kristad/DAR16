@@ -42,15 +42,15 @@ public class DAOUser implements IDAOUser{
 		contact.setDateNaissance(DateNaissance);
 		contact.setMon_contrat(mon_c); // si nul exclure de la requette ! à chaque foreign key faire deux requettes dans deux methodes
 		
-		ResultSet rec=null;
 		
-		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-	    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-		try {
-	        Class.forName("com.mysql.jdbc.Driver");
-	        Connection conn = DriverManager.getConnection( "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+		
+		ResultSet rec = null;
+		Connection con = null;
+		try{
+			Class.forName(Messages.getString("driver")); 
+			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
 	        
-			Statement stmt_test = conn.createStatement();
+			Statement stmt_test = con.createStatement();
 			String request_test;
 			if (mon_c == null){
 			// le idc sera à null automatiquement, attention au get
@@ -62,7 +62,7 @@ public class DAOUser implements IDAOUser{
 			
 			// la modife commence ici
 
-			Statement stmt_id = conn.createStatement();
+			Statement stmt_id = con.createStatement();
 			rec = stmt_id.executeQuery("SELECT max(id) FROM user"); // retourne le id maximum;
 			while (rec.next()) {
 			contact.setId(Integer.parseInt(rec.getString("max(id)")));  // chercher par id ? auto-incremente id
@@ -72,7 +72,7 @@ public class DAOUser implements IDAOUser{
 			// la modife termine ici	
 			
 			stmt_test.close(); 
-			conn.close();
+			con.close();
 		} catch( Exception e ){
 			e.printStackTrace();
 		}
@@ -305,13 +305,11 @@ public class DAOUser implements IDAOUser{
 		int duplicat_mail=0;
 		
 		ResultSet rec = null;
-		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-	    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-	    
-	    try {
-	        Class.forName("com.mysql.jdbc.Driver");
-	        Connection conn = DriverManager.getConnection( "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
-			Statement stmt = conn.createStatement();
+		Connection con = null;
+		try{
+			Class.forName(Messages.getString("driver")); 
+			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE email = "+"'"+email+"'"); 
 
 			while (rec.next()) {
@@ -336,7 +334,7 @@ public class DAOUser implements IDAOUser{
 
 			stmt.close();
 			rec.close();
-			conn.close();
+			con.close();
 
 		} catch( Exception e ){
 			e.printStackTrace();
