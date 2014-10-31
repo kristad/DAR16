@@ -17,7 +17,7 @@ public class Connect {
 	        Class.forName("com.mysql.jdbc.Driver");
 	        Connection conn = DriverManager.getConnection(
 	                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
-	     
+	     conn.close();
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
