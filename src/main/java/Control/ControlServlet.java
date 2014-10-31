@@ -64,7 +64,7 @@ public class ControlServlet extends HttpServlet {
 		try {
 		    Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException ex) {
-		    // error out
+			out.println("Exeption class formname");  // error out
 		}
 		Connection connection=null;
 		
@@ -76,14 +76,14 @@ public class ControlServlet extends HttpServlet {
 			String sql = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance, idc) VALUES('k','d','k@d','k','1','23654789','3') ;"; 
 					//+ name + ")";
 			int rs=statement.executeUpdate(sql);
-			System.out.println("user ajoute");
+			out.println("user ajoute"); 
 		   
 			connection.close();
 			//PreparedStatement prep = connection.prepareStatement(sql);
 		}
 	catch(Exception E){ //Any Exceptions will be caught here System.out.println(“The error is==”+E.getMessage()); }
 
-		System.out.println("The error is=="+E.getMessage()); 
+		out.println("The error is=="+E.getMessage()); 
 		}
 		//this.getServletContext().getRequestDispatcher( "/index.html" ).forward( request, response );
 	}
