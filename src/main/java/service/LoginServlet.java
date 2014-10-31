@@ -1,6 +1,8 @@
 package service;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -64,8 +66,19 @@ public class LoginServlet extends HttpServlet {
 		// si mot de passe oublié on envoie un email automatique ou un sms ? ou question secrete ?
 		
 		//Date maDate= new Date();
-		Connect c= new Connect ();
-		c.Connect();
+		
+		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+	    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+	   // String appname = System.getenv("OPENSHIFT_APP_NAME");
+	    
+	    try {
+	        Class.forName("com.mysql.jdbc.Driver");
+	        Connection conn = DriverManager.getConnection(
+	                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+	        conn.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 		
 		HttpSession session; // il faut ajouter l'utilisation de cookies et url et autres ?
 		//int  visitCount=0;
