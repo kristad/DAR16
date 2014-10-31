@@ -84,6 +84,7 @@ public class ControlServlet extends HttpServlet {
 
 		System.out.println("The error is=="+E.getMessage()); 
 		}
+		this.getServletContext().getRequestDispatcher( "/index.html" ).forward( request, response );
 	}
 		 //this.getServletContext().getRequestDispatcher( "/test.jsp" ).forward( request, response );
 		
