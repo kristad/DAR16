@@ -32,8 +32,11 @@ public class DAOTrajet implements IDAOTrajet{
 
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt_test = con.createStatement();
 			String request_test;
 			if ((u != null) & (sa !=null) & (sd != null)){
@@ -66,8 +69,11 @@ public class DAOTrajet implements IDAOTrajet{
 		int success=0;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			String request = "DELETE FROM trajet WHERE id = "+id ; 
 			success = stmt.executeUpdate(request);
@@ -86,9 +92,11 @@ public class DAOTrajet implements IDAOTrajet{
 		Trajet st= new Trajet();
 		Connection con = null;
 		try{
-			System.out.println("dans DAOstation, find trajet, start ************");
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt_test = con.createStatement();
 			String res = "SELECT * from trajet where id="+id;
 			
@@ -158,8 +166,11 @@ public class DAOTrajet implements IDAOTrajet{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE idsd="+sd.getId()); 
 
@@ -209,8 +220,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE idsa="+sa.getId()); 
 
@@ -260,8 +274,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE idu="+u.getId()); 
 
@@ -311,8 +328,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		Connection con = null;
 		Trajet trajet = new Trajet();
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE (idu, idsa, idsd) IN ( '"+user.getId()+"',  '"+stationa.getId()+"', '"+stationd.getId()+"') "); 
 
@@ -356,8 +376,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE (idsu, idsd, heured) IN ( '"+user.getId()+"',  '"+stationdepart.getId()+"', '"+heured+"' "); 
 
@@ -390,8 +413,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		Connection con = null;
 		ArrayList<Trajet> trajets= new ArrayList<Trajet>();
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE etatTrajet='"+etatTrajet+"' "); 
     
@@ -429,8 +455,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		Connection con = null;
 		ArrayList<Trajet> trajets= new ArrayList<Trajet>();
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM trajet WHERE dandh='"+danh+"' "); 
     
@@ -468,8 +497,11 @@ public ArrayList<Trajet> getTrajetsByStationArrive(Station sa) {
 		
 		Connection con = null;
 		try{	
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt_test = con.createStatement();
 			String req_test = "SELECT id from trajet where id='"+id+"' ";
 			int idTrajet= stmt_test.executeUpdate(req_test);
