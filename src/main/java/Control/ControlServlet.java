@@ -53,19 +53,19 @@ public class ControlServlet extends HttpServlet {
         String appname = System.getenv("OPENSHIFT_APP_NAME");
         response.setContentType("text/html"); 
         PrintWriter out = response.getWriter();
-        out.println("jdbc:mysql://"+host+":"+port+"/test "+ appname);
+        out.println("jdbc:mysql://"+host+":"+port+"/dar "+ appname);
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://"+host+":"+port+"/test", "adminin72uv9", "iM2MZJYmwhLf");
+                    "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
             Statement stmt = conn.createStatement();
             String query = "select * from contrat ;";
             ResultSet resultset = stmt.executeQuery(query);
 
             
             response.setContentType("text/html"); 
-            out.println("jdbc:mysql://"+host+":"+port+"/test");
+            out.println("jdbc:mysql://"+host+":"+port+"/dar");
             int i = 0;
             while (resultset.next()) {
 
