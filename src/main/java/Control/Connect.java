@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 
 public class Connect {
 	
-	public static void main(String[] args){ 
+	public  void Connect (){ 
 		   //Vos données, variables, différents traitements…
 		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 	    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
@@ -21,7 +21,8 @@ public class Connect {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-		  }
+	    return ;
+	}
 	
 
 }

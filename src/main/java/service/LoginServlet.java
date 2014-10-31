@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.*;
+import Control.Connect;
 import application.*;
 import metier.*;
 /**
@@ -63,6 +64,8 @@ public class LoginServlet extends HttpServlet {
 		// si mot de passe oublié on envoie un email automatique ou un sms ? ou question secrete ?
 		
 		//Date maDate= new Date();
+		Connect c= new Connect ();
+		c.Connect();
 		
 		HttpSession session; // il faut ajouter l'utilisation de cookies et url et autres ?
 		//int  visitCount=0;
