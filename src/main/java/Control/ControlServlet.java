@@ -72,7 +72,7 @@ public class ControlServlet extends HttpServlet {
 			PrintWriter out=response.getWriter();
 			out.println("OK");
 			
-			String sql = "INSERT INTO user ( name ) values ('k'); "; 
+			String sql = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance, idc) VALUES('k','d','k@d','k','1','23654789','3') ;"; 
 					//+ name + ")";
 			int rs=statement.executeUpdate(sql);
 			System.out.println("user ajoute");
