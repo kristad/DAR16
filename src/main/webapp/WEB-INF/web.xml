@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         metadata-complete="false">
- <display-name>dar</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" metadata-complete="false" version="3.0">
+  <display-name>dar</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
@@ -18,7 +13,76 @@
     <servlet-name>ControlServlet</servlet-name>
     <url-pattern>/Enter</url-pattern>
   </servlet-mapping>
-         
-         
+  
+  <servlet>
+    <description></description>
+    <servlet-name>ajouteTrajet</servlet-name>
+    <servlet-class>service.ajouteTrajet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ajouteTrajet</servlet-name>
+    <url-pattern>/ajouteTrajet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <servlet-name>Choix_contrat</servlet-name>
+    <servlet-class>service.Choix_contrat</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Choix_contrat</servlet-name>
+    <url-pattern>/Choix_contrat</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <servlet-name>FrequenceDA</servlet-name>
+    <servlet-class>service.FrequenceDA</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrequenceDA</servlet-name>
+    <url-pattern>/FrequenceDA</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <description></description>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>service.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <servlet-name>Trajet</servlet-name>
+    <servlet-class>service.Trajet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Trajet</servlet-name>
+    <url-pattern>/Trajet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <description></description>
+    <servlet-name>VeloAvailable</servlet-name>
+    <servlet-class>service.VeloAvailable</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VeloAvailable</servlet-name>
+    <url-pattern>/VeloAvailable</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <servlet-name>WikiVerif</servlet-name>
+    <servlet-class>service.WikiVerif</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WikiVerif</servlet-name>
+    <url-pattern>/WikiVerif</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
-
