@@ -22,8 +22,11 @@ public class DAOFrequence implements IDAOFrequence {
 		
        Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt_test = con.createStatement();
 			String req = "INSERT INTO frequence(ids, idu, frequenceD) VALUES('"+station.getId()+"','"+user.getId()+"',1)"; 
 			
@@ -55,8 +58,12 @@ public class DAOFrequence implements IDAOFrequence {
 
 try{
 
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+	String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+       Class.forName("com.mysql.jdbc.Driver");
+       con = DriverManager.getConnection(
+                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+       
 			Statement stmt_test = con.createStatement();
 			String req = "INSERT INTO frequence(ids, idu, frequenceA) VALUES('"+station.getId()+"','"+user.getId()+"',1)"; 
 			
@@ -85,9 +92,11 @@ try{
 		int success=0;
 		Connection con = null;
 		try{
-			System.out.println("dans DAOstation, deletefrequence, start ************");
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt_test = con.createStatement();
 			String req = "DELETE  from frequence where id='"+id+"' ";
 			stmt_test.executeUpdate(req);
@@ -107,9 +116,11 @@ try{
 		Frequence freq= new Frequence();
 		Connection con = null;
 		try{
-			System.out.println("dans DAOstation, getfrequence, start ************");
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 			Statement stmt_test = con.createStatement();
 			
 			String res = "SELECT * from frequence where id="+id;
@@ -156,9 +167,11 @@ try{
 	       int idFreq=freq.getId();
 	       System.out.println("........................"+idFreq);
 			try{
-				System.out.println("dans DAOstation, addstation, start ************");
-				Class.forName(Messages.getString("driver")); 
-				con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+				String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+			    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+			       Class.forName("com.mysql.jdbc.Driver");
+			       con = DriverManager.getConnection(
+			                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 				Statement stmt_test = con.createStatement();
 				
 				int freqa=freq.getFrequenceA();
@@ -186,9 +199,12 @@ try{
 	       int idFreq=freq.getId();
 	       System.out.println("........................"+idFreq);
 			try{
-				System.out.println("dans DAOstation, addstation, start ************");
-				Class.forName(Messages.getString("driver")); 
-				con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+				
+				String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+			    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+			       Class.forName("com.mysql.jdbc.Driver");
+			       con = DriverManager.getConnection(
+			                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 				Statement stmt_test = con.createStatement();
 				
 				int freqd=freq.getFrequenceD();
@@ -215,8 +231,11 @@ try{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM frequence WHERE idu='"+user.getId()+"' "); 
 
@@ -253,8 +272,11 @@ public ArrayList<Frequence> getFrequenceByUserD(User user) {
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM frequence WHERE idu='"+user.getId()+"' ORDER BY frequenceD DESC"); 
 
@@ -290,8 +312,11 @@ public ArrayList<Frequence> getFrequenceByUserA(User user) {
 	ResultSet rec = null;
 	Connection con = null;
 	try{
-		Class.forName(Messages.getString("driver")); 
-		con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+		String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+	    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+	       Class.forName("com.mysql.jdbc.Driver");
+	       con = DriverManager.getConnection(
+	                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 		Statement stmt = con.createStatement();
 		rec = stmt.executeQuery("SELECT * FROM frequence WHERE idu='"+user.getId()+"' ORDER BY frequenceA DESC"); 
 
@@ -327,8 +352,11 @@ public ArrayList<Frequence> getFrequenceByUserA(User user) {
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM frequence WHERE ids='"+station.getId()+"' "); 
 
@@ -366,8 +394,11 @@ public ArrayList<Frequence> getFrequenceByUserA(User user) {
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM frequence WHERE ids='"+station.getId()+"' AND idu='"+user.getId()+"' ");
 				while (rec.next()){

@@ -47,8 +47,11 @@ public class DAOUser implements IDAOUser{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		    Class.forName("com.mysql.jdbc.Driver");
+		     con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 	        
 			Statement stmt_test = con.createStatement();
 			String request_test;
@@ -87,8 +90,11 @@ public class DAOUser implements IDAOUser{
 		int success=0;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			String request = "DELETE FROM user WHERE id = "+id; 
 			success = stmt.executeUpdate(request);
@@ -112,8 +118,11 @@ public class DAOUser implements IDAOUser{
 		DAOContrat mon_contrat= new DAOContrat();  // créer l'objet Contrat qui sera chercher dans la bd par getContrat()
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE id = "+id); 
 
@@ -156,8 +165,12 @@ public class DAOUser implements IDAOUser{
 		boolean success = false;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+		       
 			Statement stmt = con.createStatement();
 			String sqlFirstName = "UPDATE user SET firstname = "+"'"+firstname+"'"+" WHERE id = "+id ; 
 			String sqlLastName = "UPDATE user SET name = "+"'"+lastname+"'"+" WHERE id = "+id ; 
@@ -204,8 +217,11 @@ public class DAOUser implements IDAOUser{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE firstname = "+"'"+firstname+"'"); 
 
@@ -256,8 +272,12 @@ public class DAOUser implements IDAOUser{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+		       
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE name = "+"'"+lastname+"'"); 
 
@@ -307,8 +327,11 @@ public class DAOUser implements IDAOUser{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE email = "+"'"+email+"'"); 
 
@@ -365,8 +388,11 @@ public class DAOUser implements IDAOUser{
 		ResultSet rec = null;
 		Connection con = null;
 		try{
-			Class.forName(Messages.getString("driver")); 
-			con = DriverManager.getConnection(Messages.getString("database"), Messages.getString("username"), Messages.getString("password")); 
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
 			Statement stmt = con.createStatement();
 			// executeQuery ou executeUpdate ?
 			rec = stmt.executeQuery("SELECT * FROM user WHERE name = "+"'"+lastname+"' AND firstname ='"+firstname+"'");  // requette correcte ? AND ?
