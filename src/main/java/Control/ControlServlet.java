@@ -70,7 +70,10 @@ public class ControlServlet extends HttpServlet {
 		
 		try {
 			  
-			connection = DriverManager.getConnection(connectionparams, uname, psword); 
+			//connection = DriverManager.getConnection(connectionparams, uname, psword); 
+			connection = DriverManager.getConnection(
+	                "jdbc:mysql://127.12.161.2:3306/test", uname, psword);
+	 
 			Statement statement = connection.createStatement();
 			
 			String sql = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance, idc) VALUES('k','d','k@d','k','1','23654789','3') ;"; 
