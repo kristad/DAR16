@@ -76,4 +76,13 @@
     <servlet-name>WikiVerif</servlet-name>
     <url-pattern>/WikiVerif</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>ParseServlet</servlet-name>
+    <servlet-class>service.ParseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ParseServlet</servlet-name>
+    <url-pattern>/ParseServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
