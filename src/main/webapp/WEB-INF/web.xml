@@ -13,7 +13,6 @@
     <servlet-name>ControlServlet</servlet-name>
     <url-pattern>/Enter</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>ajouteTrajet</servlet-name>
@@ -23,7 +22,6 @@
     <servlet-name>ajouteTrajet</servlet-name>
     <url-pattern>/ajouteTrajet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>Choix_contrat</servlet-name>
@@ -33,7 +31,6 @@
     <servlet-name>Choix_contrat</servlet-name>
     <url-pattern>/Choix_contrat</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>FrequenceDA</servlet-name>
@@ -43,8 +40,7 @@
     <servlet-name>FrequenceDA</servlet-name>
     <url-pattern>/FrequenceDA</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <description></description>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>service.LoginServlet</servlet-class>
@@ -53,7 +49,6 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>Trajet</servlet-name>
@@ -63,8 +58,7 @@
     <servlet-name>Trajet</servlet-name>
     <url-pattern>/Trajet</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <description></description>
     <servlet-name>VeloAvailable</servlet-name>
     <servlet-class>service.VeloAvailable</servlet-class>
@@ -73,7 +67,6 @@
     <servlet-name>VeloAvailable</servlet-name>
     <url-pattern>/VeloAvailable</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>WikiVerif</servlet-name>
@@ -83,6 +76,4 @@
     <servlet-name>WikiVerif</servlet-name>
     <url-pattern>/WikiVerif</url-pattern>
   </servlet-mapping>
-  
-  
 </web-app>
