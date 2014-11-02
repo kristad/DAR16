@@ -229,7 +229,7 @@ public class EspaceU extends HttpServlet {
 							    	  		// je retourne du texte simple avec lien vers servlet avec station séléctionné, ça sera dans le doPost
 							    	  		// le premier accè à la servlet
 							    	  			
-							    	  		ecrire.write("<br>- <a href='EspaceU?c=arrivee'> Les stations les plus fréquentées à l'arrivée?</a> <br><br>"); // l'utilisateur doit spésifier
+							    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert'><strong><a href='EspaceU?c=arrivee'>Choisi votre station</a></strong>Les stations les plus fréquentées à l'arrivée?</div> <br><br>"); // l'utilisateur doit spésifier
 							    	  		
 							    	  		for(int i=0; i<max; i++){
 							    	  			try{	
@@ -245,7 +245,7 @@ public class EspaceU extends HttpServlet {
 							    	  		}else{	// fin if du paramettre c= id station clické
 							    	  		
 							    	  		if(s.equals("depart")){
-							    	  			ecrire.write("<br>- <a href='EspaceU?c=arrivee'> Les stations les plus fréquentées à l'arrivée?</a> <br><br>"); // l'utilisateur doit spésifier
+							    	  			ecrire.write("<br> <div class='alert alert-danger' role='alert'><strong><a href='EspaceU?c=arrivee'>Choisi votre station</a></strong>Les stations les plus fréquentées à l'arrivée?</div> <br><br>"); // l'utilisateur doit spésifier
 								    	  		
 							    	  			for(int i=0; i<max; i++){
 								    	  			try{	
@@ -260,7 +260,7 @@ public class EspaceU extends HttpServlet {
 							    	  		}// fin if
 							    	  		
 							    	  		if(s.equals("arrivee")){
-							    	  			ecrire.write("<br>- <a href='EspaceU?c=depart'> Les stations les plus fréquentées au départ?</a> <br><br>"); // l'utilisateur doit spésifier
+							    	  			ecrire.write("<br> <div class='alert alert-success' role='alert'><strong><a href='EspaceU?c=depart'>Choisi votre station</a></strong>Les stations les plus fréquentées au depart?</div> <br><br>"); // l'utilisateur doit spésifier
 								    	  		for(int i=0; i<max; i++){
 								    	  			try{	
 								    	  				fa=freqsa.get(i);

@@ -55,9 +55,9 @@ public class DAOUser implements IDAOUser{
 			String request_test;
 			if (mon_c == null){
 			// le idc sera à null automatiquement, attention au get
-			request_test = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance) VALUES('"+firstname+"','"+lastname+"','"+email+"','"+pass+"','"+sexe+"','"+DateNaissance+"')";
+			request_test = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance) VALUES('"+lastname+"','"+firstname+"','"+email+"','"+pass+"','"+sexe+"','"+DateNaissance+"')";
 			}else{
-			request_test = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance, idc) VALUES('"+firstname+"','"+lastname+"','"+email+"','"+pass+"','"+sexe+"','"+DateNaissance+"','"+mon_c.getId()+"')"; 
+			request_test = "INSERT INTO user(name, firstname, email, pass, sexe , datenaissance, idc) VALUES('"+lastname+"','"+firstname+"','"+email+"','"+pass+"','"+sexe+"','"+DateNaissance+"','"+mon_c.getId()+"')"; 
 			}
 			stmt_test.executeUpdate(request_test); // ligne ajouté dans la bd, faire une requette pour le max id
 			
