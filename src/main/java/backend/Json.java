@@ -1,9 +1,13 @@
 package backend;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,11 +17,18 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.Charset;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.json.parsers.JSONParser;
 import com.json.parsers.JsonParserFactory;
 
 import domain.*;
-
+import metier.*;
 
 
 public class Json {
@@ -451,7 +462,7 @@ public boolean parsings(String a){
 		String s1= "https://api.jcdecaux.com/vls/v1/stations?contract=";
 		String s2= "&apiKey=ba9e3bf0bf4ef4fb60a39958f5a19f883560c35f";
 		String s= "";
-		for(int i =1; i<= 26; i++){
+		for(int i =1; i<= 26; i ++){
 			s=s1+dc.getContrat(i).getContract_name()+s2; 
 			try{
 				this.parse(s); 	
