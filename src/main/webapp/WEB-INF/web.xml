@@ -85,7 +85,6 @@
     <servlet-name>ParseServlet</servlet-name>
     <url-pattern>/ParseServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>AddWiki</servlet-name>
@@ -95,7 +94,6 @@
     <servlet-name>AddWiki</servlet-name>
     <url-pattern>/AddWiki</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>EspaceU</servlet-name>
@@ -105,18 +103,16 @@
     <servlet-name>EspaceU</servlet-name>
     <url-pattern>/EspaceU</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <servlet-name>Profil</servlet-name>
     <servlet-class>service.Profil</servlet-class>
   </servlet>
- <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>Profil</servlet-name>
     <url-pattern>/Profil</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <description></description>
     <servlet-name>StationSelect</servlet-name>
     <servlet-class>service.StationSelect</servlet-class>
@@ -125,8 +121,7 @@
     <servlet-name>StationSelect</servlet-name>
     <url-pattern>/StationSelect</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <servlet-name>Trajets</servlet-name>
     <servlet-class>service.Trajets</servlet-class>
@@ -135,5 +130,4 @@
     <servlet-name>Trajets</servlet-name>
     <url-pattern>/Trajets</url-pattern>
   </servlet-mapping>
-  
 </web-app>
