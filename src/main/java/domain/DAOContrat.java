@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 import metier.Contrat;
 
 
@@ -52,6 +53,7 @@ public class DAOContrat implements IDAOContrat {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt_test = con.createStatement();
 			String request_test;
 			request_test = "INSERT INTO contrat(contract_name, cities, commercial_name,country_code) VALUES('"+contract_name+"','"+cities+"','"+commercial_name+"','"+country_code+"')";
@@ -88,6 +90,7 @@ public class DAOContrat implements IDAOContrat {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			String request = "DELETE FROM contrat WHERE id = "+id; 
 			success = stmt.executeUpdate(request);
@@ -111,6 +114,7 @@ public class DAOContrat implements IDAOContrat {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			String request = "DELETE FROM contrat WHERE contract_name='"+c+"' "; 
 			success = stmt.executeUpdate(request);
@@ -135,7 +139,8 @@ public class DAOContrat implements IDAOContrat {
 		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
-		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM contrat WHERE id = "+id); 
 
@@ -169,7 +174,7 @@ public class DAOContrat implements IDAOContrat {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
-		       
+
 			Statement stmt = con.createStatement();
 			String sqlCountry_code = "UPDATE contrat SET country_code = "+"'"+country_code+"'"+" WHERE id = "+id ; 
 			String sqlcommercial = "UPDATE contrat SET commercial_name = "+"'"+commercial_name+"'"+" WHERE id = "+id ; 
@@ -204,6 +209,7 @@ public class DAOContrat implements IDAOContrat {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM contrat WHERE commercial_name='"+commercial_name+"'"); 
 
@@ -250,6 +256,7 @@ public class DAOContrat implements IDAOContrat {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM contrat WHERE contract_name= "+"'"+contract_name+"'"); 
 
@@ -300,7 +307,8 @@ public class DAOContrat implements IDAOContrat {
 		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
-		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM contrat WHERE country_code = "+"'"+country_code+"'"); 
 

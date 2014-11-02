@@ -38,6 +38,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 			       Class.forName("com.mysql.jdbc.Driver");
 			       con = DriverManager.getConnection(
 			                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 				Statement stmt_test = con.createStatement();
 				String req;
 				if ((u != null) & (s !=null)){
@@ -76,6 +77,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+ 
 			Statement stmt = con.createStatement();
 			String request = "DELETE FROM wikiverif WHERE id = "+id ; 
 			success = stmt.executeUpdate(request);
@@ -103,7 +105,8 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
-		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE id = "+id); 
 
@@ -158,6 +161,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt_test = con.createStatement();
 			String req = "UPDATE wikiverif SET commentaire='"+commentaire+"'  where id='"+id+"' ";
 			String reqK = "UPDATE wikiverif SET ids='"+s.getId()+"' where id="+id;
@@ -193,9 +197,10 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
-		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J"); 
+		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
-			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE idu="+user.getId()); 
+			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE idu="+user.getId() +" ORDER BY id DESC "); 
 
 			while (rec.next()) {
 				WikiVerif wiki = new WikiVerif();
@@ -225,7 +230,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		
 	}
 
-	public ArrayList<WikiVerif> getContactByStation(Station station) {
+	public ArrayList<WikiVerif> getWikiVerifByStation(Station station) {
 		
 		ArrayList<WikiVerif> wikis = new ArrayList<WikiVerif>();
 
@@ -237,6 +242,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE ids="+station.getId()); 
 
@@ -267,7 +273,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		
 	}
 
-	public ArrayList<WikiVerif> getContactByUserStation(User user, Station station) {
+	public ArrayList<WikiVerif> getWikiVerifByUserStation(User user, Station station) {
 	
 		
 		ArrayList<WikiVerif> wikis= new ArrayList<WikiVerif>();
@@ -280,6 +286,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE (idu, ids) IN ( '"+user.getId()+"',  '"+station.getId()+"') "); 
 				while(rec.next()){
@@ -312,10 +319,12 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		
 	}
 
-	public ArrayList<WikiVerif> getContactByDate(Date dandh) {
+	public ArrayList<WikiVerif> getWikiVerifByDate(Date dandh) { // juste le jour normalement
 		
 		ResultSet rec = null;
 		Connection con = null;
+		WikiVerif wiki = new WikiVerif ();
+		DAOStation station= new DAOStation(); // sans parametres ? 
 		ArrayList<WikiVerif> wikis= new ArrayList<WikiVerif>();
 		try{
 			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
@@ -323,12 +332,12 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE dandh='"+dandh+"' "); 
     
 			while(rec.next()){
-				WikiVerif wiki = new WikiVerif ();
-				DAOStation station= new DAOStation(); // sans parametres ? 
+
 				DAOUser user= new DAOUser();
 				
 				wiki.setId(Integer.parseInt(rec.getString("id")));
@@ -364,6 +373,7 @@ public class DAOWikiVerif implements IDAOWikiVerif {
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM wikiverif WHERE (idu, ids, dandh) IN ( '"+user.getId()+"',  '"+station.getId()+"', '"+dandh+"' "); 
 

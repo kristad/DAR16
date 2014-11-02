@@ -1,8 +1,6 @@
 package service;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.*;
-import Control.Connect;
 import application.*;
 import metier.*;
 /**
@@ -34,6 +31,8 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    // si l'utilisateur n'a pas de contrat, il doit en avoir d'abord
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -66,7 +65,7 @@ public class LoginServlet extends HttpServlet {
 		// si mot de passe oublié on envoie un email automatique ou un sms ? ou question secrete ?
 		
 		//Date maDate= new Date();
-	
+		
 		HttpSession session; // il faut ajouter l'utilisation de cookies et url et autres ?
 		//int  visitCount=0;
 		 
@@ -96,10 +95,11 @@ public class LoginServlet extends HttpServlet {
 				 if(u != null){
 					 if(password.equals(u.getPass())){ // verifier password et hasher !
 						 
-						// ********** a ajouter, inactiver l'ancienne et créer une nouvelle session, ?
+						
 						 // RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html"); // revoyer la requete
 						 
-						 // il faut toujours donner à l'utilisateur la possibilité de se déconnecter ou savoir qu'il est connecté
+						 // il faut toujours donner à l'utilisateur la possibilité de se déconnecter ou savoir qu'il est connecté ?
+					
 						try{
 						 session = request.getSession(false); // détruire les anciennes sessions
 						 session.invalidate();
@@ -109,26 +109,22 @@ public class LoginServlet extends HttpServlet {
 						 session = request.getSession(true);
 						 response.getWriter().write(u.toStrig()); 
 				         session.setAttribute("userID", u.getId());
-						 
-				         /*
-						 if (session.isNew()){
-					         session.setAttribute("userID", u.getId());
-					      } else {
-					      }
-							// visitCount = (Integer)session.getAttribute("visitCountKey")+1;
-					        //  userID = (String)session.getAttribute(userID);
-					     	// session.setAttribute("visitCountKey",  visitCount);	 
-					      */
-					      
+				         
+				         // si pas de contrat choix_xontrat sinon EspaceU 
+				         if(u.getMon_contrat() == null){
+				        	 response.sendRedirect("Choix_contrat");
+				         }else{
+				        	 response.sendRedirect("EspaceU");
+				         }
 						 
 					 }else{
-						 response.getWriter().write("mot de pass éronné");
+						 response.getWriter().write("<center> <br> mot de pass éronné ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
 					 }
 				 }else{
-					 response.getWriter().write("utilisateur introuvable");
+					 response.getWriter().write("<center> <br> utilisateur introuvable ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
 				 }
 				}catch(Exception e){
-					response.getWriter().write("utilisateur introuvable"); // wait et redirect
+					response.getWriter().write("<center> <br> utilisateur introuvable ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
 				}
 
 			}else{
@@ -140,7 +136,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("index.html");
 			}else{
 				//a faire, verifier le reste des paterns
-				// exécuter--------
+
 				
 				u=du.getUserByEmail(email);
 				int j=0;
@@ -161,25 +157,15 @@ public class LoginServlet extends HttpServlet {
 				
 					
 					 session = request.getSession(true);
-	
-					 if (session.isNew()){
-				         session.setAttribute("userID", u.getId());
-				      } else { // seul moyen utilisé pour se déconncecter automatiquement sinon, session reste ouverte?
-				     // visitCount = (Integer)session.getAttribute("visitCountKey")+1;
-				       //  userID = (String)session.getAttribute(userID);
-				    	  // je ne fais pas inactivate ici
-					      session.setAttribute("userID", u.getId()); // ce n'est pas important de donner à un navigateur la possibilité de créer plussieures comptes, mais juste pour le teste
-				      }
-				      //session.setAttribute("visitCountKey",  visitCount);
-					 try{
-						wait(5000);
-					 }catch(Exception e){ 
-					 }
-						response.sendRedirect("Choix_contrat");
+					 session.setAttribute("userID", u.getId());
+					
+			
+					 response.sendRedirect("Choix_contrat");
 					
 					
 				}else{ // utilisateur éxistant
-					response.getWriter().write("email dejas utilisé");
+					response.getWriter().write("<center> <br> Email déjas utilisé ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
+
 				}
 					
 			}	

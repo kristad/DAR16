@@ -11,6 +11,7 @@ public interface IDAOTrajet {
 	
 	public Trajet addTrajet(Station sd, Station sa, User u, Date danh,
 			Date heured, Date heureA, int etatTrajet, String commentaire);
+	public Trajet addTrajet(Station sd, Station sa, User u);
 	
 	public int deleteTrajet(int id);
 	

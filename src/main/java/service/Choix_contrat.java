@@ -28,10 +28,13 @@ public class Choix_contrat extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    // meme si l'utilisateur a un contrat il peut le changer
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		int visitCount=0;
+
 		HttpSession session;
 		DAOContrat dc= new DAOContrat();
 		Contrat c;
@@ -41,30 +44,41 @@ public class Choix_contrat extends HttpServlet {
 		
 		PrintWriter ecrire = response.getWriter();
 		response.setContentType("text/html");
-		ecrire.write("<html><head> <meta charset='ISO-8859-1'><title>Séléctionner le contrat qui correspond à votre ville</title></head><body>");
+		ecrire.write("<html lang='fr'> <head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/>");
+		ecrire.write(" <title>Choix de contrat</title> <link href='css/bootstrap.min.css' rel='stylesheet'><link href='css/bootstrap-theme.min.css' rel='stylesheet'>");
+		ecrire.write("<link href='theme.css' rel='stylesheet'> <script src='js/ie-emulation-modes-warning.js'></script></head><body>");
 		
 		if(s==null){
 		// se renseigner sur esponse.encodeUrl
 			
 		
-		ecrire.write("<a href='g.html'>Retourner à la page précédente</a> <br><br><br> <center><h3>Séléctionner le contrat qui correspond à votre ville</h3><br></center>");
+		ecrire.write("<a href='EspaceU'>Retourner à l'éspace utilisateur</a> <br><br><br> <center><h3>Séléctionner le contrat qui correspond à votre ville</h3><br></center>");
 		
 		for(int i=1; i<=26; i++){ // nombre totale de contrats est fixé à 26, à changer si il y a du nouveau
 			
 			c= dc.getContrat(i);
 
-			ecrire.write("<br>&nbsp<a href='Choix_contrat?c="+i+"'>"); // je rappel la meme servelet avec le paramettre c.
+			String panel;
+            if((i%2)==1)
+            	panel="panel panel-info";
+            else panel="panel panel-warning";
+            
+            	
+			ecrire.write("<br>&nbsp<div width=20%><div class='"+panel+"'><div class='panel-heading'><h3 class='panel-title'><a href='Choix_contrat?c="+i+"'></h3>");
 			ecrire.write(c.toString());
-			ecrire.write("</a><br>");
-			ecrire.write(c.toStringcities());
-			ecrire.write("<br>");
+			ecrire.write("</a></div>");
+			ecrire.write("<div class='panel-body'>");		
+		    ecrire.write(c.toStringcities());
+			ecrire.write("</div></div>");
+			ecrire.write("</div></div>");
 
 		}
-		ecrire.write("</body><html>");
+		ecrire.write("<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script><script src='js/bootstrap.min.js'></script>");
+		ecrire.write("<script src='js/docs.min.js'></script><script src='js/docs.min.js'></script><script src='js/ie10-viewport-bug-workaround.js'></script></body></html>");
 		}else
 		{
 			//fermeture session pas propre
-			if(s.equals("200")){
+			if(s.equals("200")){ // appelé dans g.html ou EspaceU pour se déconnecter, c'est un choix
 				session = request.getSession(true);
 				session.invalidate();
 				
@@ -73,14 +87,12 @@ public class Choix_contrat extends HttpServlet {
 			
 			
 			c=dc.getContrat(Integer.parseInt(s));
-
-			//ecrire.write(c.toString()); 
 			
 			
-			 session = request.getSession(true);
+			 session = request.getSession(false);
 
 			 if (session.isNew()){
-					response.sendRedirect("index.html"); // anormale
+					response.sendRedirect("index.html"); // anormale d'etre là quand on n'est pas connecté
 				 
 		      } else {
 
@@ -90,7 +102,7 @@ public class Choix_contrat extends HttpServlet {
 		    	  
 		    	  du.modifyUser(u.getId(), u.getFirstName(), u.getName(), u.getEmail(), u.getPass(), u.getSexe(), u.getDateNaissance(), c); 
 		    	  
-				response.sendRedirect("g.html");
+				response.sendRedirect("EspaceU");
 		      }
 		} 
 		}

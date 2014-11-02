@@ -42,17 +42,15 @@ public class DAOUser implements IDAOUser{
 		contact.setDateNaissance(DateNaissance);
 		contact.setMon_contrat(mon_c); // si nul exclure de la requette ! à chaque foreign key faire deux requettes dans deux methodes
 		
-		
-		
 		ResultSet rec = null;
 		Connection con = null;
 		try{
 			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 		    String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-		    Class.forName("com.mysql.jdbc.Driver");
-		     con = DriverManager.getConnection(
+		       Class.forName("com.mysql.jdbc.Driver");
+		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
-	        
+
 			Statement stmt_test = con.createStatement();
 			String request_test;
 			if (mon_c == null){
@@ -95,6 +93,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			String request = "DELETE FROM user WHERE id = "+id; 
 			success = stmt.executeUpdate(request);
@@ -123,6 +122,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE id = "+id); 
 
@@ -170,7 +170,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
-		       
+
 			Statement stmt = con.createStatement();
 			String sqlFirstName = "UPDATE user SET firstname = "+"'"+firstname+"'"+" WHERE id = "+id ; 
 			String sqlLastName = "UPDATE user SET name = "+"'"+lastname+"'"+" WHERE id = "+id ; 
@@ -190,7 +190,7 @@ public class DAOUser implements IDAOUser{
 			if(DateNaissance != 0)stmt.executeUpdate(sqlDateNaissance);
 			if(mon_c != null){
 			String sqlMon_c = "UPDATE user SET idc = "+"'"+mon_c.getId()+"'"+" WHERE id = "+id ; 
-			System.out.println("************"+mon_c.getId());
+			System.out.println("Contrat modifié"+mon_c.getId());
 			stmt.executeUpdate(sqlMon_c); 
 			}
 
@@ -222,6 +222,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+ 
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE firstname = "+"'"+firstname+"'"); 
 
@@ -277,7 +278,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
-		       
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE name = "+"'"+lastname+"'"); 
 
@@ -332,6 +333,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			rec = stmt.executeQuery("SELECT * FROM user WHERE email = "+"'"+email+"'"); 
 
@@ -393,6 +395,7 @@ public class DAOUser implements IDAOUser{
 		       Class.forName("com.mysql.jdbc.Driver");
 		       con = DriverManager.getConnection(
 		                "jdbc:mysql://"+host+":"+port+"/dar", "adminc1A7TAm", "6gG4scG6dM1J");
+
 			Statement stmt = con.createStatement();
 			// executeQuery ou executeUpdate ?
 			rec = stmt.executeQuery("SELECT * FROM user WHERE name = "+"'"+lastname+"' AND firstname ='"+firstname+"'");  // requette correcte ? AND ?

@@ -18,11 +18,11 @@ public interface IDAOWikiVerif {
 	
 	public ArrayList<WikiVerif> getWikiVerifByUser(User user);
 	
-	public ArrayList<WikiVerif> getContactByStation(Station station);
+	public ArrayList<WikiVerif> getWikiVerifByStation(Station station); // only today normalement
 	
-	public ArrayList<WikiVerif> getContactByUserStation(User user, Station station);
+	public ArrayList<WikiVerif> getWikiVerifByUserStation(User user, Station station);
 	
-	public ArrayList<WikiVerif> getContactByDate(Date dandh);
+	public ArrayList<WikiVerif> getWikiVerifByDate(Date dandh);
 	
 	
 	public WikiVerif getWikiVerifByUserStationDate (User user, Station station, Date dandh);
