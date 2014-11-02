@@ -50,14 +50,14 @@ public class EspaceU extends HttpServlet {
 		    	User u= du.getUser((Integer)session.getAttribute("userID")); 
 	    	  
 		    	if(u.getMon_contrat() == null){
-		    		response.sendRedirect("index.html"); 
+		    		response.sendRedirect("Choix_contrat"); 
 		    	}else{
 		    		
-		    		// ici je suis connecté
+		    		// ici je suis connecte
 		    		
 			  		PrintWriter ecrire = response.getWriter();
 					response.setContentType("text/html");
-					// ces information doivent toujours être affichés
+					// ces information doivent toujours être affiches
 					
 					ecrire.write("<html lang='fr'> <head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/>");
 					ecrire.write(" <title>Choix de contrat</title> <link href='css/bootstrap.min.css' rel='stylesheet'><link href='css/bootstrap-theme.min.css' rel='stylesheet'>");
@@ -70,12 +70,12 @@ public class EspaceU extends HttpServlet {
 					ecrire.write("<div align='left'>");
 					
 					ecrire.write("<button type='button' class='btn btn-lg btn-success'><a href='Profil'>Profil</a></button> &nbsp &nbsp");
-					ecrire.write("<button type='button' class='btn btn-lg btn-info'><a href='Trajet'>Trajet</a></button> &nbsp &nbsp");
+					ecrire.write("<button type='button' class='btn btn-lg btn-info'><a href='Trajets'>Trajet</a></button> &nbsp &nbsp");
 					ecrire.write("<button type='button' class='btn btn-lg btn-warning'><a href='Choix_contrat'>Changer le contrat:'"+u.getMon_contrat().getContract_name()+"' </a></button>");
  			        ecrire.write("</div>");
 					
 					
-					// ici on gère une partie du trajet
+					// ici on gere une partie du trajet
 
 					try{
 						String sd="";
@@ -106,7 +106,7 @@ public class EspaceU extends HttpServlet {
 								
 								try{ idt=(Integer)session.getAttribute("trajetID"); } catch(Exception e){}
 								
-								if(idt != 0 ){ // c'est à modifier pour la session ?
+								if(idt != 0 ){ // c'est a modifier pour la session ?
 									t=dt.getTrajet(idt); 
 									if(t != null){
 									try{ if(sd != "" && sd != null){ // le modify ne marche pas !!!
@@ -123,7 +123,7 @@ public class EspaceU extends HttpServlet {
 										session.setAttribute("trajetID", 0);
 										response.sendRedirect("EspaceU"); // anormmale !
 									}
-								}else{ // créer un trajet et le référencie dans la session
+								}else{ // creer un trajet et le referencie dans la session
 									
 									try{
 										if(sd != null && sd != "" ){
@@ -152,7 +152,7 @@ public class EspaceU extends HttpServlet {
 					
 					
 					
-			    				// je donne ici la possibilité de chercher une station et de regarder l'historique
+			    				// je donne ici la possibilite de chercher une station et de regarder l'historique
 								// innerHTML, dan sle head ?
 								
 								ecrire.write("<br><hr><br>");
@@ -162,15 +162,15 @@ public class EspaceU extends HttpServlet {
 								
 								
 								
-								// contenue antérieure de Maps.html
+								// contenue anterieure de Maps.html
 								//ecrire.write(" <style> html, body, #map-canvas { position: absolute; height: 300px; width: 300px; left: 0px;padding: 0px} #panel { position: absolute; top: 5px; left: 100%; margin-left: -180px; z-index: 5; background-color: #fff; padding: 5px; border: 1px solid #999; } </style> <div id='panel2' >ici</div> <script languague='javascript' src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script> <script language='javascript' src='//code.jquery.com/jquery-1.10.2.js'></script> <script language='javascript'> var geocoder; var map; function initialize() { geocoder = new google.maps.Geocoder(); var latlng = new google.maps.LatLng(48.856614, 2.3522219000000177); var mapOptions = {  zoom: 8, center: latlng } map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions); } function codeAddress() { var address = document.getElementById('address').value; geocoder.geocode( { 'address': address}, function(results, status) { if (status == google.maps.GeocoderStatus.OK) { map.setCenter(results[0].geometry.location); var lat=results[0].geometry.location.lat(); var lng=results[0].geometry.location.lng();  var url='EspaceU?lat='+lat+'&lng='+lng; $('#panel2').load( url, function() {  }); var marker = new google.maps.Marker({  map: map, position: results[0].geometry.location }); } else { alert('Geocode was not successful for the following reason: ' + status); } }); } google.maps.event.addDomListener(window, 'load', initialize); </script>  <div id='map-canvas'></div><div id='panel'><input id='address' type='text' value='Paris, fr'><input type='button' value='Geocode' onclick='codeAddress()'></div>");
-								// fin contenue antérieure de Maps.html
+								// fin contenue anterieure de Maps.html
 								
 								
 								
 								
 								
-								// contenue antérieure de Trajet
+								// contenue anterieure de Trajet
 			    	  			try{
 			    	  				int max=5;
 			    	  				UtilsStation us= new UtilsStation();
@@ -186,7 +186,7 @@ public class EspaceU extends HttpServlet {
 			    	  				
 			    	  				ecrire.write("<br> - Voici les stations de votre contrat les plus proches de vous: <br>"); 
 			    	  				
-			    	  				for(int i=0; i<mesS.length; i++){ // je peux faire plus proches et status ok après
+			    	  				for(int i=0; i<mesS.length; i++){ // je peux faire plus proches et status ok apres
 			    	  					mas=mesS[i];
 			    	  					try{
 			    	  						ecrire.write(" &nbsp &nbsp <a href='StationSelect?id="+mas.getId()+"'>"+mas.toStringSta()+"</a><br>"); 
@@ -207,7 +207,7 @@ public class EspaceU extends HttpServlet {
 			    	  			
 			    	  			
 			    	  			
-								// contenue antérieure de FreqenceDA
+								// contenue anterieure de FreqenceDA
 								  
 							      try{
 							    	  
@@ -220,16 +220,16 @@ public class EspaceU extends HttpServlet {
 							    	  
 							    	  	try{ s=request.getParameter("c"); } catch(Exception e){ }
 							    	  		
-							    	  		ArrayList<Frequence> freqsa=df.getFrequenceByUserA(u); //ordonnées déjas dans le DAO
+							    	  		ArrayList<Frequence> freqsa=df.getFrequenceByUserA(u); //ordonnees dejas dans le DAO
 							    	  		ArrayList<Frequence> freqsd=df.getFrequenceByUserD(u); 
 
 							    	  		
 							    	  		if(s == null || s ==""){
 							    	  			
-							    	  		// je retourne du texte simple avec lien vers servlet avec station séléctionné, ça sera dans le doPost
-							    	  		// le premier accè à la servlet
+							    	  		// je retourne du texte simple avec lien vers servlet avec station selectionne, ça sera dans le doPost
+							    	  		// le premier acce a la servlet
 							    	  		ecrire.write("<div style='background: url('http://www.eutouring.com/velib_m13_DSC00303FP_lrg.JPG'); repeat;'>");	
-							    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong>Allez à: </strong><a href='EspaceU?c=arrivee'>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</a></div> <br><br>"); // l'utilisateur doit spésifier
+							    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong>Allez a: </strong><a href='EspaceU?c=arrivee'>&nbsp &nbsp &nbsp Les stations les plus frequentees a l'arrivee?</a></div> <br><br>"); // l'utilisateur doit spesifier
 							    	  		
 							    	  		for(int i=0; i<max; i++){
 							    	  			try{	
@@ -242,10 +242,10 @@ public class EspaceU extends HttpServlet {
 							    	  			}catch(Exception e){ }  
 							    	  		}// fin for	
 							    	  		
-							    	  		}else{	// fin if du paramettre c= id station clické
+							    	  		}else{	// fin if du paramettre c= id station clicke
 							    	  		
 							    	  		if(s.equals("depart")){
-								    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong>Allez à: </strong><a href='EspaceU?c=arrivee'>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</a></div> <br><br>"); // l'utilisateur doit spésifier
+								    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong>Allez a: </strong><a href='EspaceU?c=arrivee'>&nbsp &nbsp &nbsp Les stations les plus frequentees a l'arrivee?</a></div> <br><br>"); // l'utilisateur doit spesifier
 								    	  		
 							    	  			for(int i=0; i<max; i++){
 								    	  			try{	
@@ -260,7 +260,7 @@ public class EspaceU extends HttpServlet {
 							    	  		}// fin if
 							    	  		
 							    	  		if(s.equals("arrivee")){
-							    	  			ecrire.write("<br> <div class='alert alert-success' align='center' role='alert'><strong>Allez à: </strong><a href='EspaceU?c=depart'>&nbsp &nbsp &nbsp Les stations les plus fréquentées au depart?</a></div> <br><br>"); // l'utilisateur doit spésifier
+							    	  			ecrire.write("<br> <div class='alert alert-success' align='center' role='alert'><strong>Allez a: </strong><a href='EspaceU?c=depart'>&nbsp &nbsp &nbsp Les stations les plus frequentees au depart?</a></div> <br><br>"); // l'utilisateur doit spesifier
 								    	  		for(int i=0; i<max; i++){
 								    	  			try{	
 								    	  				fa=freqsa.get(i);

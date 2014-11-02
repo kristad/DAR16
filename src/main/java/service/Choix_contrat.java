@@ -44,6 +44,7 @@ public class Choix_contrat extends HttpServlet {
 		
 		PrintWriter ecrire = response.getWriter();
 		response.setContentType("text/html");
+		
 		ecrire.write("<html lang='fr'> <head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/>");
 		ecrire.write(" <title>Choix de contrat</title> <link href='css/bootstrap.min.css' rel='stylesheet'><link href='css/bootstrap-theme.min.css' rel='stylesheet'>");
 		ecrire.write("<link href='theme.css' rel='stylesheet'> <script src='js/ie-emulation-modes-warning.js'></script></head><body>");

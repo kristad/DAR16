@@ -34,7 +34,7 @@ public class Trajets extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-    // ici on doit donner à l'utilisateur la possibilité de términer le dérnier la saisie du dérnier trajet
+    // ici on doit donner a l'utilisateur la possibilite de terminer le dernier la saisie du dernier trajet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -47,7 +47,7 @@ public class Trajets extends HttpServlet {
 
 			 if (session.isNew()){
 					response.sendRedirect("index.html"); 
-		      } else {// connecté
+		      } else {// connecte
 		    	  
 		    	  	DAOUser du = new DAOUser();
 					User u= du.getUser((Integer)session.getAttribute("userID"));
@@ -64,8 +64,8 @@ public class Trajets extends HttpServlet {
 						ecrire.write("</a>");
 						ecrire.write("&nbsp &nbsp");
 						
-						// si les deux stations sont séléctionnés ont peut ajouter trajet en submettant ce form
-						ecrire.write("<form method='get' name='trajet' action='ajouteTrajet'>Vous partez dans combien de minutes: <input type='text' name='hdepart' size='5'> &nbsp durée éstimé du trajet: <input type='text' name='duree' size='5'><br><textarea rows='4' cols='50' name='comment' ></textarea><input class='button' type='submit' name ='addwiki' value='Valider' /> </form>");
+						// si les deux stations sont selectionnes ont peut ajouter trajet en submettant ce form
+						ecrire.write("<form method='get' name='trajet' action='ajouteTrajet'>Vous partez dans combien de minutes: <input type='text' name='hdepart' size='5'> &nbsp duree estime du trajet: <input type='text' name='duree' size='5'><br><textarea rows='4' cols='50' name='comment' ></textarea><input class='button' type='submit' name ='addwiki' value='Valider' /> </form>");
 				    	
 			    
 						DAOTrajet dt= new DAOTrajet();
@@ -91,7 +91,7 @@ public class Trajets extends HttpServlet {
 						
 						ecrire.write("<div id='mes_trajets'><center>"); // affichage trajets
 						ecrire.write("Clicker sur un trajet pour l'annuler: <br>"); 
-						for(int i=0; i<mes_t.size(); i++){ // ? problème récurent si l'array n'est pas copié, je pense
+						for(int i=0; i<mes_t.size(); i++){ // ? probleme recurent si l'array n'est pas copie, je pense
 							try{
 							t=mes_t.get(i);
 						
@@ -109,9 +109,9 @@ public class Trajets extends HttpServlet {
 			        		
 						ecrire.write("<br><hr>"); // ligne horizontale
 						ecrire.write("<div id='mes_wikis'><center>"); // + les wikiverifs
-						ecrire.write("Voicis vos dérniéres participations: <br>");
+						ecrire.write("Voicis vos dernieres participations: <br>");
 						
-						for(int ii=0; ii<mes_w.size(); ii++){ // ? problème récurent si l'array n'est pas copié, je pense
+						for(int ii=0; ii<mes_w.size(); ii++){ // ? probleme recurent si l'array n'est pas copie, je pense
 							w=mes_w.get(ii); 
 							ecrire.write("<br>");
 							ecrire.write(w.toString());

@@ -52,10 +52,10 @@ public class Trajet extends HttpServlet {
 		int id=0;
 		
 		HttpSession session; 
-		session = request.getSession(false); // ne pas créer, doit rediriger vers l'entrée
+		session = request.getSession(false); // ne pas creer, doit rediriger vers l'entree
 		
 		 if (session.isNew()){ // ? je veux juste savoir si il y a un userID
-				response.sendRedirect("index.html"); // anormale, mais c'est arrivé une fois je ne sais pour quoi ?
+				response.sendRedirect("index.html"); // anormale, mais c'est arrive une fois je ne sais pour quoi ?
 	      } else {
 	    	  
 	  				try{
@@ -77,7 +77,7 @@ public class Trajet extends HttpServlet {
 	    	  		}catch(Exception e){
 	    	  		}
 	    	  	
-	    	  		if(id==0){ // donc pas de station cliqué
+	    	  		if(id==0){ // donc pas de station clique
 
 	    	  			try{
 	    	  				// ?var=&var2= dans l'url
@@ -88,7 +88,7 @@ public class Trajet extends HttpServlet {
 	    	  				
 	    	  				ecrire.write("<br> - Voici les stations de votre contrat les plus proches de vous: <br>"); 
 	    	  				
-	    	  				for(int i=0; i<mesS.length; i++){ // je peux faire plus proches et status ok après
+	    	  				for(int i=0; i<mesS.length; i++){ // je peux faire plus proches et status ok apres
 	    	  					mas=mesS[i];
 	    	  					try{
 	    	  						ecrire.write(" &nbsp &nbsp <a href='StationSelect?id="+mas.getId()+"'>"+mas.toStringSta()+"</a><br>"); 
@@ -100,13 +100,13 @@ public class Trajet extends HttpServlet {
 	    	  			}catch(Exception e){	
 	    	  			}
 	    	  			
-	    	  		}else{ // l'utilisateur a clické sur une station "séléction"
+	    	  		}else{ // l'utilisateur a clicke sur une station "selection"
 	    	  			
 	    	  			// des modifications devrait aussi etre faites pour les stations !!
 	    	  			mas=ds.getStation(id);
-	    	  			// ajouter une wiki et se renseigner sur une station c'est des activités de fréquence
-	    	  			ecrire.write(mas.toString()); // à changer pour donner les info à l'utilisateur, utiliser javascript pour ça
-	    	  			// ajouter à la bd
+	    	  			// ajouter une wiki et se renseigner sur une station c'est des activites de frequence
+	    	  			ecrire.write(mas.toString()); // a changer pour donner les info a l'utilisateur, utiliser javascript pour ça
+	    	  			// ajouter a la bd
 	    	  			
 	    	  			System.out.println(mas.toString()); 
 	    	  		}	

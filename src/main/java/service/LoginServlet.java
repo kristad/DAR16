@@ -59,10 +59,10 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// comment somme nous arrive la quelle bouton ?, reset ? inscription ? connection ? mot de pass oublié ?
-		// verifier que le email contient un aerobase et n'existe pas dans la bd et que les deux mots de passes sont égaux
+		// comment somme nous arrive la quelle bouton ?, reset ? inscription ? connection ? mot de pass oublie ?
+		// verifier que le email contient un aerobase et n'existe pas dans la bd et que les deux mots de passes sont egaux
 		// verifier que le mot de passe est le meme que dans la bd
-		// si mot de passe oublié on envoie un email automatique ou un sms ? ou question secrete ?
+		// si mot de passe oublie on envoie un email automatique ou un sms ? ou question secrete ?
 		
 		//Date maDate= new Date();
 		
@@ -80,8 +80,8 @@ public class LoginServlet extends HttpServlet {
 		
 		String insc=request.getParameter("inscription");
 		String con=request.getParameter("connect");
-		
-		if((insc == null && con != null) || (insc != null && con == null)){ // un seul bouton clické
+		response.setContentType("text/html");
+		if((insc == null && con != null) || (insc != null && con == null)){ // un seul bouton clicke
 
 			 DAOUser du = new DAOUser();
 			 User u;
@@ -98,10 +98,10 @@ public class LoginServlet extends HttpServlet {
 						
 						 // RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html"); // revoyer la requete
 						 
-						 // il faut toujours donner à l'utilisateur la possibilité de se déconnecter ou savoir qu'il est connecté ?
+						 // il faut toujours donner a l'utilisateur la possibilite de se deconnecter ou savoir qu'il est connecte ?
 					
 						try{
-						 session = request.getSession(false); // détruire les anciennes sessions
+						 session = request.getSession(false); // detruire les anciennes sessions
 						 session.invalidate();
 						}
 						catch(Exception e){
@@ -118,13 +118,14 @@ public class LoginServlet extends HttpServlet {
 				         }
 						 
 					 }else{
-						 response.getWriter().write("<center> <br> mot de pass éronné ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
+							
+						 response.getWriter().write("<center> <br> mot de pass eronne ! <br> Clickez sur precedent dans votre navigateur pour retourner a  la page d'authentification </centre>");
 					 }
 				 }else{
-					 response.getWriter().write("<center> <br> utilisateur introuvable ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
+					 response.getWriter().write("<center> <br> utilisateur introuvable ! <br> Clickez sur precedent dans votre navigateur pour retourner a  la page d'authentification </centre>");
 				 }
 				}catch(Exception e){
-					response.getWriter().write("<center> <br> utilisateur introuvable ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
+					response.getWriter().write("<center> <br> utilisateur introuvable ! <br> Clickez sur precedent dans votre navigateur pour retourner a  la page d'authentification </centre>");
 				}
 
 			}else{
@@ -163,8 +164,8 @@ public class LoginServlet extends HttpServlet {
 					 response.sendRedirect("Choix_contrat");
 					
 					
-				}else{ // utilisateur éxistant
-					response.getWriter().write("<center> <br> Email déjas utilisé ! <br> Clickez sur précédent dans votre navigateur pour retourner à  la page d'authentification </centre>");
+				}else{ // utilisateur existant
+					response.getWriter().write("<center> <br> Email dejas utilise ! <br> Clickez sur precedent dans votre navigateur pour retourner a  la page d'authentification </centre>");
 
 				}
 					

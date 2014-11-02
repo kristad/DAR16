@@ -101,12 +101,12 @@ public class StationSelect extends HttpServlet {
 								ecrire.write("&nbsp &nbsp");
 								ecrire.write("<a href='EspaceU?stationa="+id+"'>Séléctionner comme station d'arrivée</a>"); // ajout fait dans la bd
 								ecrire.write("&nbsp &nbsp");
-								ecrire.write("<a href='' onClick='javascript:window.history.go(-1)'>Retourner à mes recherches</a>");
+								ecrire.write("<a href='' onClick='javascript:window.history.go(-1)'>Retourner a mes recherches</a>");
 								
 								// filtrer par date par la suite
 								ecrire.write("<br><hr>"); // ligne horizontale pour tous les wiki, sans filtre de date, changer apres la présentation
 								ecrire.write("<div id='mes_wikis'><center>"); // + les wikiverifs
-								ecrire.write("Voicis les dérnières participations: <br>");
+								ecrire.write("Voicis les dérnieres participations: <br>");
 								
 								for(int i=0; i<mes_w.size(); i++){ // normalement le dérnier suffit
 									w=mes_w.get(i); 
@@ -125,7 +125,7 @@ public class StationSelect extends HttpServlet {
 								
 								ecrire.write("<br><hr>"); // ligne horizontale pour tous les wiki, sans filtre de date, changer apres la présentation
 								ecrire.write("<div id='mes_trajets'><center>"); // + les wikiverifs
-								ecrire.write("Voicis les dérnières prévisions d'arrivées: <br>");
+								ecrire.write("Voicis les dérnieres prévisions d'arrivées: <br>");
 								
 								
 								for(int i=0; i<mes_t.size(); i++){ 
@@ -143,7 +143,7 @@ public class StationSelect extends HttpServlet {
 								
 								ecrire.write("<br><hr>"); // ligne horizontale pour tous les wiki, sans filtre de date, changer apres la présentation
 								ecrire.write("<div id='mes_trajets'><center>"); // + les wikiverifs
-								ecrire.write("Voicis les dérnières prévisions de départ: <br>");
+								ecrire.write("Voicis les dérnieres prévisions de départ: <br>");
 								
 								
 								for(int i=0; i<mes_t.size(); i++){ 

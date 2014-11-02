@@ -50,7 +50,7 @@ public class AddWiki extends HttpServlet {
 
 			 if (session.isNew()){
 					response.sendRedirect("index.html"); 
-		      } else {// connecté
+		      } else {// connecte
 		    	  
 		    	  	DAOUser du = new DAOUser();
 					User u= du.getUser((Integer)session.getAttribute("userID"));
