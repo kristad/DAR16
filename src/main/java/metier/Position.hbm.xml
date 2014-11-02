@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="metier">
+
+    <class name="Position" table="Position_Table">
+  	 <id name="idP" column="POSITION_ID">
+	<generator class="increment"/>
+	</id>
+  	  <property name="lat" type="long">
+            <column name="LAT"/>
+        </property>
+        <property name="long" type="long">
+            <column name="LONG" />
+        </property>
+</class>
+  
+</hibernate-mapping>

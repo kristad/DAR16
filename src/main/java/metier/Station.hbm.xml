@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="metier">
+	<class name="Station" table="Station_Table">
+		<id name="id" type="long" column="ID_STATION">
+			<generator class="increment" />
+		</id>
+		<property name="UVelosDispos" type="int">
+			<column name="VELOS_DISPO" />
+		</property>
+		<property name="UPlacesDispos" type="int">
+			<column name="PLACES_DISPOS" />
+		</property>
+		
+		
+		<set name="UVD" inverse="true" cascade="all-delete-orphan">
+			<key column="ID_STATION" />
+			<one-to-many class="WikiVerif" />
+		</set>
+		<set name="UPD" inverse="true" cascade="all-delete-orphan">
+			<key column="ID_STATION" />
+			<one-to-many class="WikiVerif" />
+		</set>
+		
+		<property name="number" type="long">
+			<column name="NUMBER" />
+		</property>
+		
+		 <property name="contract_name" type="String">
+			<column name="CONTRACT_NAME"/>
+		</property>
+		
+		 <property name="banking" type="boolean">
+			<column name="BANKING"/>
+		</property>
+		
+		 <property name="bonus" type="boolean">
+			<column name="BONUS"/>
+		</property>
+		
+		<many-to-one name="position" column="POSITION_ID" unique="true" 
+		  class="Position" cascade="all-delete-orphan" not-null="true"/>
+		
+		
+			 <property name="status" type="boolean">
+			<column name="STATUS"/>
+		</property>
+		
+		 <property name="bike_stands" type="int">
+			<column name="BIKE_STANDS"/>
+		</property>
+		
+			 <property name="available_bike_stands" type="int">
+			<column name="AVAILABLE_BIKE_STANDS"/>
+		</property>
+		
+		 <property name="available_bikes" type="int">
+			<column name="AVAILABLE_BIKES"/>
+		</property>
+		 
+		 <property name="last_update" type="java.lang.Date">
+		 <column name="LAST_UPDATE"/>
+		 </property>		
+
+	</class>
+</hibernate-mapping>

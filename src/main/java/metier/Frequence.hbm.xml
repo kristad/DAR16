@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="metier">
+	<class name="Frequence" table="Frequence_Table">
+		<id name="id" type="long" column="ID_FREQUENCE">
+			<generator class="increment" />
+		</id>
+		
+		<many-to-one name="u" column="ID" class="User" cascade="save-update"/>
+		<many-to-one name="s" column="ID_STATION" class="User" cascade="save-update"/>
+		
+		
+		<property name="frequenceD" type="int">
+			<column name="FREQUENCED" />
+		</property>
+		<property name="frequenceA" type="int">
+			<column name="FREQUENCEA" />
+		</property>
+
+	</class>
+</hibernate-mapping>

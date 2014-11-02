@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+
+  <class name="Trajet" table="trajet_Table">
+  	 <id name="id" type="long" column="ID" >
+   		<generator class="increment"/>
+  	 </id>
+
+ 	<many-to-one name="Sa" class="Station" column="sa" cascade="save-update"/>
+ 	<many-to-one name="Sd" class="Station" column="sd" cascade="save-update"/>
+ 	<many-to-one name="u" class="User" column="u" cascade="save-update"/>
+ 	
+	<property name="etatTrajet"  type="int" column="etatTrajet">
+	</property>
+	<property name="heured"  type="java.util.Date" column="heured">
+	</property>
+	<property name="heureA"  type="java.util.Date" column="heureA">
+	</property>
+	<property name="dandh"  type="java.util.Date" column="dandh">
+	</property>
+	
+  </class>
+</hibernate-mapping>

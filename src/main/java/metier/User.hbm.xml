@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+  <class name="User" table="user_Table">
+  
+  	 <id name="id" type="long" column="ID" >
+   		<generator class="increment"/>
+  	 </id>
+	
+	<property name="name"  type="java.lang.String" column="name">
+	</property>
+	<property name="sexe"  type="boolean" column="sexe">
+	</property>
+	<property name="dateNaissance"  type="int" column="dateNaissance">
+	</property>
+	<property name="firstName"  type="java.lang.String" column="firstName">
+	</property>
+	<property name="email"  type="java.lang.String" column="email">
+	</property>
+	<property name="pass"  type="java.lang.String" column="pass">
+	</property>
+
+	<set name="frequences" cascade="all-delete-orphan">
+		<key column="ID" />
+	<one-to-many class="Frequence"/>
+	</set>
+	
+  </class>
+</hibernate-mapping>

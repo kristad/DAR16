@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="metier">
+	<class name="Contrat" table="Contrat_Table">
+		<id name="id" type="long" column="ID_CONTRAT">
+			<generator class="increment" />
+		</id>
+		<property name="country_code" type="java.lang.String">
+			<column name="COUNTRY_CODE" />
+		</property>
+		<property name="commercial_name" type="java.lang.String">
+			<column name="COMMERCIAL_NAME" />
+		</property>
+		<property name="contract_name" type="java.lang.String">
+			<column name="CONTRACT_NAME" />
+		</property>
+        
+    <set name="cities" cascade="all-delete-orphan">
+	<key column="ID_CONTRAT" />
+	<one-to-many class="java.lang.String"/>
+	</set>
+
+
+	</class>
+</hibernate-mapping>

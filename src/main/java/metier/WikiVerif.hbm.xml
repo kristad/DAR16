@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+  <class name="WikiVerif" table="wiki_Table">
+  	 <id name="id" type="long" column="ID" >
+   		<generator class="increment"/>
+  	 </id>
+ 	<many-to-one name="s" class="Station" column="s" cascade="save-update"/>
+	<many-to-one name="u" class="User" column="u" cascade="save-update"/>
+	<property name="velos" type="int" column="velos">
+	</property>
+	<property name="places" type="int" column="places">
+	</property>
+	<property name="dandh"  type="java.util.Date" column="dandh">
+	</property>
+  </class>
+</hibernate-mapping>
