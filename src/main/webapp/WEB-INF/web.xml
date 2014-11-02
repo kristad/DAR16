@@ -78,12 +78,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <servlet-name>ParseServlet</servlet-name>
-    <servlet-class>service.ParseServlet</servlet-class>
+    <servlet-name>ServletJson</servlet-name>
+    <servlet-class>backend.ServletJson</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ParseServlet</servlet-name>
-    <url-pattern>/ParseServlet</url-pattern>
+    <servlet-name>ServletJson</servlet-name>
+    <url-pattern>/ServletJson</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
