@@ -228,7 +228,7 @@ public class EspaceU extends HttpServlet {
 							    	  			
 							    	  		// je retourne du texte simple avec lien vers servlet avec station séléctionné, ça sera dans le doPost
 							    	  		// le premier accè à la servlet
-							    	  			
+							    	  		ecrire.write("<div style='background: url('http://www.eutouring.com/velib_m13_DSC00303FP_lrg.JPG'); repeat;'>");	
 							    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong><a href='EspaceU?c=arrivee'>Choisi votre station</a></strong>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</div> <br><br>"); // l'utilisateur doit spésifier
 							    	  		
 							    	  		for(int i=0; i<max; i++){
@@ -284,7 +284,7 @@ public class EspaceU extends HttpServlet {
 							      
 							      
 							      
-							      ecrire.write("</body></html>");
+							      ecrire.write("</div></body></html>");
 							      
 								
 				}// fin else principale
