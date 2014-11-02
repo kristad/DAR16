@@ -94,7 +94,7 @@ public class Contrat {
 	//@Override
 	public String toString_() {
 		return "Contrat "+ id +". Country_code=" + country_code + ", Commercial_name="
-				+ commercial_name + ", Contract_name=" + contract_name +"]";
+				+ commercial_name + ", Contract_name=" + contract_name +"";
 	}
 
 	public String toStringcities_() {
@@ -103,7 +103,7 @@ public class Contrat {
 	
 	public String toString() {
 		return "Id: "+ id +". Pays: " + country_code + ", Nom commerciale: "
-				+ commercial_name + ", Nom: " + contract_name +"]";
+				+ commercial_name + ", Nom: " + contract_name +"";
 	}
 
 	public String toStringcities() {

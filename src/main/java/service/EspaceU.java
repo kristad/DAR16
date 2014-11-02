@@ -260,7 +260,7 @@ public class EspaceU extends HttpServlet {
 							    	  		}// fin if
 							    	  		
 							    	  		if(s.equals("arrivee")){
-							    	  			ecrire.write("<br> <div class='alert alert-success' align='center' role='alert'><strong>Allea à: </strong><a href='EspaceU?c=depart'>&nbsp &nbsp &nbsp Les stations les plus fréquentées au depart?</a></div> <br><br>"); // l'utilisateur doit spésifier
+							    	  			ecrire.write("<br> <div class='alert alert-success' align='center' role='alert'><strong>Allez à: </strong><a href='EspaceU?c=depart'>&nbsp &nbsp &nbsp Les stations les plus fréquentées au depart?</a></div> <br><br>"); // l'utilisateur doit spésifier
 								    	  		for(int i=0; i<max; i++){
 								    	  			try{	
 								    	  				fa=freqsa.get(i);
