@@ -116,12 +116,16 @@ public class Trajet {
 	}
 
 
-	@Override
-	public String toString() {
+	//@Override
+	public String toString_() {
 		return "Trajet [id=" + id + ", Sd=" + Sd + ", Sa=" + Sa + ", u=" + u
 				+ ", danh=" + danh + ", commentaire=" + commentaire
 				+ ", heured=" + heured + ", heureA=" + heureA + ", etatTrajet="
 				+ etatTrajet + "]";
+	}
+	
+	public String toString() { //html
+		return "Station de départ=" + Sd.getAddress() + ", Station d'arrivée=" + Sa.getAddress()+ "<br> Heure de départ:" + heured + ", heure d'arrivée prévue:" + heureA + ((etatTrajet ==  1)? "": "Etat du trajet: "+ etatTrajet )+ (commentaire.equals("")? "" : " <br> Commentaire: "+ commentaire);
 	}
 	
 	

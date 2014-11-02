@@ -105,5 +105,9 @@ public class WikiVerif {
 	}
 	*/
 	
-
+	// on est dans StationSelect
+	// un wiki est valabel un jour ! à modifier
+	public String toString() {// html
+		return "Velos: "+ velos + ", Places: "+places + ", à : " + dandh.getHours() + "h:" +dandh.getMinutes()+ " . <br> &nbsp Commentaire: " + commentaire;
+	}
 }

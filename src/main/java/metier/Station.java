@@ -232,14 +232,22 @@ public class Station {
 				+ ", Velos disponibles: " + available_bikes;
 	}
 
-	public String toStringDyn() {
+	public String toStringDyn_() {
 		return " Communauté: Velos disponibles: " + UVelosDispos + ", Places disponibles: " + UPlacesDispos +", JCdecaux: Places disponibles: " + available_bike_stands
 				+ ", Velos disponibles: " + available_bikes;
 	}
 
-	public String toStringSta() { // il faut clicker pour plus d'infos
+	public String toStringSta_() { // il faut clicker pour plus d'infos
 		return "Station: "+ name+ ", Adresse: " + address + ", CB: " + ((banking) ? "oui" : "non" ) + ", bonus: " + ((bonus) ? "oui" : "non" )
 				+ ", Etat: " + ((status) ? "OK" : "Fermé" );
+	}
+	
+	public String toStringDyn() {
+		return " Disponibilités, Velos:" + available_bikes + ", Places: "+available_bike_stands+ ", Communauté : Velos: " + UVelosDispos + " Places: " + UPlacesDispos ;
+	}
+
+	public String toStringSta() { // il faut clicker pour plus d'infos
+		return "Adresse: " + address + ((banking) ? "CB" : "" ) + ((bonus) ? "Bonus" : "" ) + ((status) ? "" : "Station fermé" );
 	}
 
 }

@@ -159,5 +159,5 @@ public class User {
 		return   " LastName: " + name + ", FirstName: " + firstName + ", Email: " + email + ", Sexe: "+ sexe + ", dateNaissance: " + dateNaissance + ", Pass: " + pass + ", Id: " + id;
 
 	}
-
+	
 }

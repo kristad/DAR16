@@ -59,7 +59,7 @@ public class EspaceU extends HttpServlet {
 					response.setContentType("text/html");
 					// ces information doivent toujours être affichés
 					
-					ecrire.write("<html lang='fr'> <head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/>");
+					ecrire.write("<html lang='fr'> <head><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'/><meta name='viewport' content='width=device-width, initial-scale=1'/>");
 					ecrire.write(" <title>Choix de contrat</title> <link href='css/bootstrap.min.css' rel='stylesheet'><link href='css/bootstrap-theme.min.css' rel='stylesheet'>");
 					ecrire.write("<link href='theme.css' rel='stylesheet'> <script src='js/ie-emulation-modes-warning.js'></script>");
 					ecrire.write("</head><body>");
@@ -229,7 +229,7 @@ public class EspaceU extends HttpServlet {
 							    	  		// je retourne du texte simple avec lien vers servlet avec station séléctionné, ça sera dans le doPost
 							    	  		// le premier accè à la servlet
 							    	  		ecrire.write("<div style='background: url('http://www.eutouring.com/velib_m13_DSC00303FP_lrg.JPG'); repeat;'>");	
-							    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong><a href='EspaceU?c=arrivee'>Choisi votre station</a></strong>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</div> <br><br>"); // l'utilisateur doit spésifier
+							    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong>Allez à: </strong><a href='EspaceU?c=arrivee'>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</a></div> <br><br>"); // l'utilisateur doit spésifier
 							    	  		
 							    	  		for(int i=0; i<max; i++){
 							    	  			try{	
@@ -245,7 +245,7 @@ public class EspaceU extends HttpServlet {
 							    	  		}else{	// fin if du paramettre c= id station clické
 							    	  		
 							    	  		if(s.equals("depart")){
-								    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong><a href='EspaceU?c=arrivee'>Choisi votre station</a></strong>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</div> <br><br>"); // l'utilisateur doit spésifier
+								    	  		ecrire.write("<br> <div class='alert alert-danger' role='alert' align='center'><strong>Allez à: </strong><a href='EspaceU?c=arrivee'>&nbsp &nbsp &nbsp Les stations les plus fréquentées à l'arrivée?</a></div> <br><br>"); // l'utilisateur doit spésifier
 								    	  		
 							    	  			for(int i=0; i<max; i++){
 								    	  			try{	
@@ -260,7 +260,7 @@ public class EspaceU extends HttpServlet {
 							    	  		}// fin if
 							    	  		
 							    	  		if(s.equals("arrivee")){
-							    	  			ecrire.write("<br> <div class='alert alert-success' align='center' role='alert'><strong><a href='EspaceU?c=depart'>Choisi votre station</a></strong>&nbsp &nbsp &nbsp Les stations les plus fréquentées au depart?</div> <br><br>"); // l'utilisateur doit spésifier
+							    	  			ecrire.write("<br> <div class='alert alert-success' align='center' role='alert'><strong>Allea à: </strong><a href='EspaceU?c=depart'>&nbsp &nbsp &nbsp Les stations les plus fréquentées au depart?</a></div> <br><br>"); // l'utilisateur doit spésifier
 								    	  		for(int i=0; i<max; i++){
 								    	  			try{	
 								    	  				fa=freqsa.get(i);

@@ -91,15 +91,25 @@ public class Contrat {
 	}
 	
 
-	@Override
-	public String toString() {
+	//@Override
+	public String toString_() {
 		return "Contrat "+ id +". Country_code=" + country_code + ", Commercial_name="
 				+ commercial_name + ", Contract_name=" + contract_name +"]";
 	}
 
-	public String toStringcities() {
+	public String toStringcities_() {
 		return "Cities: " + cities + ".";
 	}
+	
+	public String toString() {
+		return "Id: "+ id +". Pays: " + country_code + ", Nom commerciale: "
+				+ commercial_name + ", Nom: " + contract_name +"]";
+	}
+
+	public String toStringcities() {
+		return "Villes: " + cities + ".";
+	}
+	
 	public Contrat(){
 	}
 	
