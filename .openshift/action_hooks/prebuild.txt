@@ -1,1 +1,0 @@
-mvn install:install-file -Dfile=../../../quick-json-1.0.2.3.jar -DgroupId=com.json.parsers -DartifactId=quick-json -Dversion=1.0.2.3 -Dpackaging=jar
